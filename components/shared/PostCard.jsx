@@ -4,20 +4,22 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   useWindowDimensions,
-} from 'react-native';
-import { useTheme } from '@contexts/ThemeContext';
-import Icon from '@components/shared/Icon';
-import { useState } from 'react';
-import { router } from 'expo-router';
-import MoreMenu from './MoreMenu';
-import { ms, mvs, vs } from 'react-native-size-matters';
-import { paddingHor } from '@functions';
-import { Image } from 'expo-image';
-import { blurhash } from '../../utils';
-import { DateFormatter } from '../../utils/DateFormatter';
-import LikePost from './LikePost';
+} from "react-native"
+import { useTheme } from "@contexts/ThemeContext"
+import Icon from "@components/shared/Icon"
+import { useState } from "react"
+import { router } from "expo-router"
+import MoreMenu from "./MoreMenu"
+import { ms, mvs, vs } from "react-native-size-matters"
+import { paddingHor } from "@functions"
+import { Image } from "expo-image"
+import { blurhash } from "../../utils"
+import { DateFormatter } from "../../utils/DateFormatter"
+import LikePost from "./LikePost"
+// ------------------------------------- elyas
 
 export default function PostCard({ post }) {
+
   const { colors } = useTheme();
   const [isLiked, setIsLiked] = useState(false);
   const [isShowinformation, setIsShowinformation] = useState(false);
@@ -27,7 +29,17 @@ export default function PostCard({ post }) {
   const charLimit = baseCharLimit + Math.floor((width - 360) / 4.2);
   const postinformation = post?.information || '';
 
-  const shouldShowSeeMore = postinformation.length > charLimit;
+  const { colors } = useTheme()
+  const [isLiked, setIsLiked] = useState(false)
+  const [isShowinformation, setIsShowinformation] = useState(false)
+  const { width } = useWindowDimensions()
+
+  const baseCharLimit = 80
+  const charLimit = baseCharLimit + Math.floor((width - 360) / 4.2)
+  const postinformation = post?.information || ""
+
+
+  const shouldShowSeeMore = postinformation.length > charLimit
 
   const information = () => {
     return (
@@ -39,15 +51,15 @@ export default function PostCard({ post }) {
           ? `${postinformation.substring(0, charLimit)}...`
           : postinformation}
       </Text>
-    );
-  };
+    )
+  }
 
   const handleNavigate = () => {
     router.push({
-      pathname: 'screens/postDetails',
+      pathname: "screens/postDetails",
       params: { postId: post?.$id },
-    });
-  };
+    })
+  }
 
   return (
     <View
@@ -104,7 +116,7 @@ export default function PostCard({ post }) {
           {post && post?.carName}
         </Text>
         <Text className="text-left">
-          {information()}{' '}
+          {information()}{" "}
           {shouldShowSeeMore && (
             <TouchableOpacity
               onPress={() => setIsShowinformation(!isShowinformation)}
@@ -113,7 +125,7 @@ export default function PostCard({ post }) {
                 style={{ color: colors.primary }}
                 className="font-rBold text-[16px]"
               >
-                {isShowinformation ? 'لږ ووینی' : 'نور ووینی'}
+                {isShowinformation ? "لږ ووینی" : "نور ووینی"}
               </Text>
             </TouchableOpacity>
           )}
@@ -156,5 +168,5 @@ export default function PostCard({ post }) {
         <LikePost post={post} />
       </View>
     </View>
-  );
+  )
 }
