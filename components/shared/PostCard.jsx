@@ -16,7 +16,7 @@ import { Image } from "expo-image"
 import { blurhash } from "../../utils"
 import { DateFormatter } from "../../utils/DateFormatter"
 import LikePost from "./LikePost"
-// -------------------------------------
+// ------------------------------------- elyas
 
 export default function PostCard({ post }) {
   const { colors } = useTheme()
