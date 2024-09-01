@@ -14,8 +14,6 @@ import { Image } from "expo-image"
 import { blurhash } from "../utils"
 import LikePost from "./shared/LikePost"
 
-// 99999999999999
-
 export default function PopularChoicespostd({ post }) {
   const { colors } = useTheme()
   const [isLiked, setIsLiked] = useState(false)
