@@ -75,7 +75,7 @@ export default function PostCard({ post }) {
                 style={{ color: colors.primaryText }}
                 className="text-[18px] mb-[3px] font-rMedium  "
               >
-                {post && post?.creator?.username}
+                {post && post?.creator?.name}
               </Text>
 
               <MoreMenu post={post} />
