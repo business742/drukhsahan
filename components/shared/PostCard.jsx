@@ -19,6 +19,16 @@ import LikePost from "./LikePost"
 // ------------------------------------- elyas
 
 export default function PostCard({ post }) {
+
+  const { colors } = useTheme();
+  const [isLiked, setIsLiked] = useState(false);
+  const [isShowinformation, setIsShowinformation] = useState(false);
+  const { width } = useWindowDimensions();
+  // lkdsjflksdjflkjsd
+  const baseCharLimit = 80;
+  const charLimit = baseCharLimit + Math.floor((width - 360) / 4.2);
+  const postinformation = post?.information || '';
+
   const { colors } = useTheme()
   const [isLiked, setIsLiked] = useState(false)
   const [isShowinformation, setIsShowinformation] = useState(false)
@@ -27,6 +37,7 @@ export default function PostCard({ post }) {
   const baseCharLimit = 80
   const charLimit = baseCharLimit + Math.floor((width - 360) / 4.2)
   const postinformation = post?.information || ""
+
 
   const shouldShowSeeMore = postinformation.length > charLimit
 
