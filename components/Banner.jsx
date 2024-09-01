@@ -16,7 +16,6 @@ export default function Banner() {
     },
   ];
   return (
-    // ============== Banner Contaienr ================ //
     <View style={{ marginTop: mvs(20) }}>
       <ImageSlider images={images} auto={true} />
     </View>
